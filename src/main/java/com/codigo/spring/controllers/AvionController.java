@@ -2,6 +2,7 @@ package com.codigo.spring.controllers;
 
 import com.codigo.spring.entity.AvionEntity;
 import com.codigo.spring.repository.AvionRepository;
+import com.codigo.spring.request.AvionRequest;
 import com.codigo.spring.response.AvionResponse;
 import com.codigo.spring.service.AvionService;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +20,10 @@ public class AvionController {
     }
 
     @PostMapping("/save")
-    public AvionEntity save(@RequestBody AvionEntity avionEntity) {
-        return avionRepository.save(avionEntity);
+    public AvionEntity save(@RequestBody AvionRequest avionRequest) {
+        return avionService.save(avionRequest);
+
+        //return avionRepository.save(avionEntity);
     }
 
     @GetMapping("/find/modelo")
